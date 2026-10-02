@@ -94,15 +94,15 @@ export const useAuth = () => {
 
   const logoutHandle = async() => {
     try {
-      dispatch(addUser(null))
-      dispatch(setToken(null))
-      dispatch(setIsAuth(null))
-      dispatch(addAllProducts(null))
-      dispatch(addAllProduct(null))
       await logoutApi();
-      setTimeout(() => navigate('/login'), 1500)
+      dispatch(addUser(null));
+      dispatch(setToken(null));
+      dispatch(setIsAuth(false));
+      dispatch(addAllProducts(null));
+      dispatch(addAllProduct(null));
+      navigate('/login', { replace: true });
     } catch (error) {
-      console.log(error)
+      console.error("Logout failed:", error);
     }
   } 
 

@@ -28,10 +28,7 @@ export const authSignUpApi = async (data) => {
   }
 };
 
-export const logoutApi = async() => {
-  try {
-    await api.post('/auth/logout');
-  } catch (error) {
-    console.log(error)
-  }
-}
+export const logoutApi = async () => {
+  const res = await api.post('/auth/logout');
+  return res.data;
+};
