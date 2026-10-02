@@ -1,0 +1,32 @@
+@import "tailwindcss";
+
+html,body{
+  scrollbar-width: none;
+}
+
+/* fonts body*/
+.font-body {
+  font-family: "Inter", sans-serif;
+}
+/* font headline */
+.font-headline {
+  font-family: "Syne", sans-serif;
+}
+/* font label */
+.font-label {
+  font-family: "Space Grotesk", sans-serif;
+}
+
+.no-scrollbar {
+  scrollbar-width: none;
+  -ms-overflow-style: none;
+}
+
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+
+/* Gradinant Background */
+.login-gradiant-bg {
+  background-image: linear-gradient(-20deg, #e9defa 0%, #fbfcdb 100%);
+}
