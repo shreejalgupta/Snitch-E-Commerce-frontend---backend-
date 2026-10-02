@@ -8,13 +8,11 @@ import cors from "cors";
 const app = express();
 
 app.use(cors({
-  origin: [
-    "https://frontend-dusky-xi-53.vercel.app/",
-    "http://localhost:5173",
-  ],
+  origin: (origin, callback) => {
+    callback(null, true);
+  },
   credentials: true,
-  methods: ["GET", "POST", "PUT", "PATCH", "DELETE", "OPTIONS"],
-  allowedHeaders: ["Content-Type", "Authorization"],
+  methods: ["GET", "POST", "PUT", "DELETE", "PATCH", "OPTIONS"]
 }));
 
 app.use(express.json());
