@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { Flame, ArrowRight } from "lucide-react";
 import { ProductCard } from "../../../../shared/UI/components/ProductCard";
 import { useSelector } from "react-redux";
+import { NavLink } from "react-router";
 
 // Mock dataset for Trending / Best Sellers
 const TRENDING_PRODUCTS = [
@@ -111,13 +112,13 @@ const TrendingSection = () => {
 
         {/* --- BOTTOM ARCHIVE CTA BUTTON --- */}
         <div className="mt-14 flex justify-center">
-          <button
-            type="button"
+          <NavLink
+            to={'/products'}
             className="font-label group inline-flex items-center justify-center gap-3 bg-black hover:bg-neutral-900 text-white px-8 py-4 text-xs font-bold uppercase tracking-[0.2em] transition-all duration-200 active:scale-[0.98] shadow-md hover:shadow-lg cursor-pointer"
           >
             <span>VIEW COMPLETE ARCHIVE (280+ ITEMS)</span>
             <ArrowRight className="w-4 h-4 transition-transform duration-200 group-hover:translate-x-1" />
-          </button>
+          </NavLink>
         </div>
       </div>
     </section>

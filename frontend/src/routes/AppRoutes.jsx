@@ -21,7 +21,7 @@ import SellerProtected from "./protectedRoute/SellerProtected.jsx";
 
 const AppRoutes = () => {
   const dispatch = useDispatch();
-  const {getAllProductInCart, setCartProduct} = useCart()
+  const {getAllProductInCart, setCartProduct, user} = useCart()
   const getMe = async () => {
     try {
       const res = await api.get("/auth/me");
@@ -37,9 +37,13 @@ const AppRoutes = () => {
 
   useEffect(() => {
     getMe();
+    
+  }, []);
+
+  useEffect(() => {
     setCartProduct();
     getAllProductInCart()
-  }, []);
+  }, [user])
 
   const router = createBrowserRouter([
     {

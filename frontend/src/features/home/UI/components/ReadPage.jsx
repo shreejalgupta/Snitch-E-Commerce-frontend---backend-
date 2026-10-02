@@ -3,7 +3,7 @@ import { ArrowUpRight } from "lucide-react";
 
 const ReadPage = () => {
   return (
-    <section className="w-full bg-[#171717] text-white py-20 px-4 sm:px-8 lg:px-16 selection:bg-[#cbfb45] selection:text-black">
+    <section id="lookbook" className="w-full bg-[#171717] text-white py-20 px-4 sm:px-8 lg:px-16 selection:bg-[#cbfb45] selection:text-black">
       <div className="max-w-[1580px] mx-auto grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-16 items-center">
         
         {/* ================= LEFT COLUMN: DUAL STAGGERED EDITORIAL IMAGES ================= */}

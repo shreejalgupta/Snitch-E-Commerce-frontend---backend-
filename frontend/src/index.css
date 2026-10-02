@@ -2,6 +2,8 @@
 
 html,body{
   scrollbar-width: none;
+  scroll-behavior: smooth;
+
 }
 
 /* fonts body*/

@@ -12,6 +12,7 @@ import productHook from "../../../shared/hooks/ProductHook";
 
 const useCart = () => {
   const dispatch = useDispatch();
+  const {user} = useSelector(store => store.auth)
   const { getProduct } = productHook();
   const [cart, setCart] = useState([]);
   const [isLoding, setIsLoding] = useState(false);
@@ -131,7 +132,8 @@ const useCart = () => {
     finalPayable,
     bagCurrentTotal,
     shippingFee,
-    totalPrice
+    totalPrice,
+    user
   };
 };
 

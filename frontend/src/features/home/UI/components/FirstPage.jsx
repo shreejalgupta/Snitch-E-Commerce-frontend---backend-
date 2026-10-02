@@ -11,6 +11,7 @@ import {
   ShoppingBag,
   ExternalLink
 } from 'lucide-react';
+import { NavLink } from 'react-router';
 
 export default function FirstPage() {
   const [soldPercentage, setSoldPercentage] = useState(82);
@@ -68,21 +69,21 @@ export default function FirstPage() {
 
               {/* 4. Action Buttons */}
               <div className="flex flex-col sm:flex-row items-stretch sm:items-center gap-3 sm:gap-4 mb-12">
-                <button
-                  type="button"
+                <NavLink
+                  to={'/products'}
                   className="font-label group bg-black hover:bg-neutral-900 active:scale-[0.98] text-white text-xs font-bold uppercase tracking-[0.2em] px-7 py-4 flex items-center justify-center gap-2.5 transition-all duration-200 cursor-pointer shadow-md hover:shadow-lg"
                 >
                   <ShoppingBag className="w-3.5 h-3.5 transition-transform group-hover:scale-110" />
                   <span>SHOP NEW ARRIVALS</span>
-                </button>
+                </NavLink>
 
-                <button
-                  type="button"
+                <a
+                  href='#lookbook'
                   className="font-label group bg-white hover:bg-neutral-50 active:scale-[0.98] text-neutral-900 border border-neutral-300 hover:border-black text-xs font-bold uppercase tracking-[0.2em] px-7 py-4 flex items-center justify-center gap-2 transition-all duration-200 cursor-pointer"
                 >
                   <span>EXPLORE LOOKBOOK</span>
                   <ArrowUpRight className="w-4 h-4 transition-transform group-hover:translate-x-0.5 group-hover:-translate-y-0.5" />
-                </button>
+                </a>
               </div>
             </div>
 
