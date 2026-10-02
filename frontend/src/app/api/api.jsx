@@ -3,7 +3,7 @@ import store from "../../app/store/store.js";
 import { setToken } from "../../features/auth/state/authSlice";
 
 const api = axios.create({
-  baseURL: "https://mindful-spirit-production-610f.up.railway.app/api",
+  baseURL: "https://snitch-e-commerce-frontend-backend-production.up.railway.app/api",
   withCredentials: true,
 });
 
