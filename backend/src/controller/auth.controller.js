@@ -51,7 +51,9 @@ export const registreController = async (req, res) => {
     })
 
     res.cookie("refreshToken", refreshToken, {
-        httpOnly: true
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
     });
 
     return res.status(201).json({
@@ -111,7 +113,9 @@ export const loginController = async (req, res) => {
     })
 
     res.cookie("refreshToken", refreshToken, {
-        httpOnly: true
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
     })
 
     return res.status(200).json({
@@ -145,7 +149,7 @@ export const refreshTokenController = async (req, res) => {
     }
 
     try {
-        
+
         const decode = readRefreshToken(refreshToken);
 
         const user = await userModel.findById(decode.userId)
@@ -167,11 +171,11 @@ export const refreshTokenController = async (req, res) => {
         }
 
 
-        const accessToken = generateAccessToken({ 
+        const accessToken = generateAccessToken({
             userId: user._id,
-            role: user.role 
+            role: user.role
         });
-        
+
         const newRefreshToken = generateRefreshToken({
             userId: user._id,
             role: user.role
@@ -182,7 +186,9 @@ export const refreshTokenController = async (req, res) => {
         })
 
         res.cookie("refreshToken", newRefreshToken, {
-            httpOnly: true
+            httpOnly: true,
+            secure: true,
+            sameSite: "none",
         })
 
         return res.status(200).json({
@@ -198,7 +204,7 @@ export const refreshTokenController = async (req, res) => {
             accessToken
         })
 
-        
+
     } catch (error) {
         return res.status(401).json({
             message: "Invalid Token",
@@ -211,8 +217,8 @@ export const refreshTokenController = async (req, res) => {
  * @description accessToken verify and given to the user
  */
 
-export const getMe = async(req, res) => {
-    const {userId , role } = req.user
+export const getMe = async (req, res) => {
+    const { userId, role } = req.user
 
     const user = await userModel.findById(userId);
     console.log(user)
@@ -228,15 +234,17 @@ export const getMe = async(req, res) => {
     })
 }
 
-export const logoutController = async(req, res) => {
-    const {userId} = req.user;
-    
+export const logoutController = async (req, res) => {
+    const { userId } = req.user;
+
     await userModel.findByIdAndUpdate(userId, {
         refreshToken: null
     })
 
     res.cookie("refreshToken", null, {
-        httpOnly: true
+        httpOnly: true,
+        secure: true,
+        sameSite: "none",
     })
 
     return res.status(200).json({
