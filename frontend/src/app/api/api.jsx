@@ -3,7 +3,7 @@ import store from "../../app/store/store.js";
 import { setToken } from "../../features/auth/state/authSlice";
 
 const api = axios.create({
-  baseURL: "/api",
+  baseURL: "https://striking-consideration-production-7abe.up.railway.app/api",
   withCredentials: true,
 });
 
